@@ -1,6 +1,7 @@
 # Social Media Performance Dashboard
-### Project Link - [Dashboard 1](https://app.powerbi.com/view?r=eyJrIjoiMmM0MTNhZmEtNzVlYS00MzcwLTkzMjYtY2IwYTA4OTRjZTAyIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9)
-### Project Link - [Dashboard 2]() 
+### Project Link - [Dashboard 1](https://app.powerbi.com/view?r=eyJrIjoiZDA1YTBkMzctMWM0Yy00NTE2LWE4MWItNTc5MTM1MmU5YjRhIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9)
+### Project Link - [Dashboard 2](https://app.powerbi.com/view?r=eyJrIjoiMmM0MTNhZmEtNzVlYS00MzcwLTkzMjYtY2IwYTA4OTRjZTAyIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9) 
+
 An **interactive Power BI dashboard** designed to analyze **social media post-level performance**, providing actionable insights on **engagement, reach, and campaign effectiveness** across multiple platforms.  
 
 This project helps **marketing teams and business stakeholders** monitor performance metrics, identify top-performing content, and optimize strategies for future campaigns.
