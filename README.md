@@ -1,5 +1,6 @@
 # Social Media Performance Dashboard
-
+### Project Link - [Dashboard 1](https://app.powerbi.com/view?r=eyJrIjoiMmM0MTNhZmEtNzVlYS00MzcwLTkzMjYtY2IwYTA4OTRjZTAyIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9)
+### Project Link - [Dashboard 2]() 
 An **interactive Power BI dashboard** designed to analyze **social media post-level performance**, providing actionable insights on **engagement, reach, and campaign effectiveness** across multiple platforms.  
 
 This project helps **marketing teams and business stakeholders** monitor performance metrics, identify top-performing content, and optimize strategies for future campaigns.
@@ -13,6 +14,7 @@ This project helps **marketing teams and business stakeholders** monitor perform
 4. [Tech Stack](#tech-stack)
 5. [Dashboard Insights](#dashboard-insights)
 6. [Setup & Usage](#setup--usage)
+7. [Images](#images)
 ---
 
 ## Overview
@@ -70,3 +72,9 @@ The dashboard is divided into **four key sections**:
 1. **Clone this repository**:
    ```bash
    git clone https://github.com/SiddharthRGowda/Social-Media-Performance-Dashboard.git
+
+## Images
+### Dashboard 1
+![Part1](https://github.com/Mohan2703/Social_Media_Performance_Analysis/blob/main/Social%20Media%20Performance%20Analysis.png?raw=true)
+### Dashboard 2
+![Part2](https://github.com/Mohan2703/Social_Media_Performance_Analysis/blob/main/part2.png?raw=true)
