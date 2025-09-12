@@ -69,11 +69,6 @@ The dashboard is divided into **four key sections**:
 
 ---
 
-## Setup & Usage
-1. **Clone this repository**:
-   ```bash
-   git clone https://github.com/SiddharthRGowda/Social-Media-Performance-Dashboard.git
-
 ## Images
 ### Dashboard 1
 ![Part1](https://github.com/Mohan2703/Social_Media_Performance_Analysis/blob/main/Social%20Media%20Performance%20Analysis.png?raw=true)
