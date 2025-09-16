@@ -72,5 +72,3 @@ The dashboard is divided into **four key sections**:
 ## Images
 ### Dashboard 1
 ![Part1](https://github.com/Mohan2703/Social_Media_Performance_Analysis/blob/main/Social%20Media%20Performance%20Analysis.png?raw=true)
-### Dashboard 2
-![Part2](https://github.com/Mohan2703/Social_Media_Performance_Analysis/blob/main/part2.png?raw=true)
