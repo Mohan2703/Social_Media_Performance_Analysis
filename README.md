@@ -4,21 +4,15 @@
 [![View Dashboard](https://img.shields.io/badge/View%20Dashboard-%23000000.svg?style=for-the-badge&logo=Codeforces&logoColor=gold)](https://app.powerbi.com/view?r=eyJrIjoiZDA1YTBkMzctMWM0Yy00NTE2LWE4MWItNTc5MTM1MmU5YjRhIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9)
 
 ## Table of Contents
-- [📊 Social Media Marketing Performance Analytics – Power BI](#-social-media-marketing-performance-analytics--power-bi)
-  - [Table of Contents](#table-of-contents)
-  - [Problem Statement](#problem-statement)
-  - [Project Planning using Star Method](#project-planning-using-star-method)
-    - [📝 S - Situation](#-s---situation)
-    - [🎯 T - Task](#-t---task)
-    - [⚡ A - Action](#-a---action)
-    - [🏆 R - Result](#-r---result)
-  - [Data Source](#data-source)
-  - [Data Preprocessing \& ETL](#data-preprocessing--etl)
-  - [Data Modelling](#data-modelling)
-  - [Data Analysis](#data-analysis)
-  - [Dashboard](#dashboard)
-  - [Findings](#findings)
-  - [Tools And Softwares](#tools-and-softwares)
+1. [Problem Statement](#problem-statement)
+2. [Project Planning using Star Method](#project-planning-using-star-method)
+3. [Data Source](#data-source)
+4. [Data Preprocessing \& ETL](#data-preprocessing--etl)
+5. [Data Modelling](#data-modelling)
+6. [Data Analysis](#data-analysis)
+7. [Dashboard](#dashboard)
+8. [Findings](#findings)
+9. [Tools And Softwares](#tools-and-softwares)
 
 ## Problem Statement
 A global IT company runs content campaigns across multiple social media platforms, generating vast amounts of performance data. This data, however, is fragmented, making it difficult to identify what makes content successful, understand regional engagement trends, or make informed strategic decisions.
@@ -31,10 +25,10 @@ A global IT company runs content campaigns across multiple social media platform
 $\textsf{\color{blue}{View Stratergy ➡️}}$
 </summary><br>
 
-- Understand key KPIs: Total Engagement, Views, Impressions, Click-Through Rate (CTR), and Engagement Rate.
-- Build hierarchical view: Platform → Content Category → Post Type → Post-Level Details.
-- Enable drilldowns: from a high-level overview → campaign analysis → regional performance → content-specific insights.
-- Design dashboards with clear filters for platform, country, campaign, content type, and date range.
+- **Understand key KPIs:** Total Engagement, Views, Impressions, Click-Through Rate (CTR), and Engagement Rate.
+- **Build hierarchical view:** Platform → Content Category → Post Type → Post-Level Details.
+- **Enable drilldowns:** from a high-level overview → campaign analysis → regional performance → content-specific insights.
+- **Design dashboards:** clear filters for platform, country, campaign, content type, and date range.
 
 ### 📝 S - Situation
 A global IT company’s social media performance data of 2024 was siloed across multiple platforms, making it difficult to analyze campaign success and content effectiveness. So A unified, interactive dashboard was required.
@@ -63,9 +57,9 @@ Track post-level performance (engagement, impressions, CTR).
 
 
 ## Data Source
-- Dataset: 2024 Social Media Performance Challenge Dataset
-- The data consolidates information from posts published across TikTok, Instagram, LinkedIn, and X.com.
-- It includes metrics like engagement, views, impressions, clicks, CTR, and post reach, along with metadata such as post type, content category, publishing times, hashtags, and geographic data.
+>- **Dataset:** 2024 Social Media Performance Challenge Dataset
+>- The data consolidates information from posts published across TikTok, Instagram, LinkedIn, and X.com.
+>- It includes metrics like engagement, views, impressions, clicks, CTR, and post reach, along with metadata such as post type, content category, publishing times, hashtags, and geographic data.
 
 ## Data Preprocessing & ETL
 **Raw data was imported as Excel file into Power BI, and the following ETL process was executed in Power Query:**
@@ -77,17 +71,17 @@ Track post-level performance (engagement, impressions, CTR).
 5. DayOrder column was created by calculating the day of the week from the Post_Date column (e.g., Monday=0, Sunday=6).
 
 ## Data Modelling
-<img width="700" height="400" alt="Image" src="https://github.com/user-attachments/assets/92b58af2-49cf-4168-90c7-4ebde28ed66d" /> <br>
+<img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/92b58af2-49cf-4168-90c7-4ebde28ed66d" /> <br>
 The data model in Power BI was designed to connect the primary data table with dimension and helper tables to enable flexible analysis.
 
-- Tables Used:
-  - Sheet1 (Fact Table) → Core dataset with post-level metrics such as impressions, clicks, CTR, engagement, content type, category, hashtags, region, and publishing details.
-  - Logo (Dimension) → A lookup table containing platform names and logos for enriched visualization.
-  - Measuress (Helper Table) →  A disconnected table created specifically to group and organize all DAX measures.
-  - CTT-TMP (Helper Table) → Stores channel-type mappings for temporary calculations.
-  - Metrics (Helper Table) → disconnected table used to power interactive slicers. To dynamically select which metric (e.g., Clicks, Views, Impressions).
+- **Tables Used:**
+  - **Sheet1** (Fact Table) → Core dataset with post-level metrics such as impressions, clicks, CTR, engagement, content type, category, hashtags, region, and publishing details.
+  - **Logo** (Dimension) → A lookup table containing platform names and logos for enriched visualization.
+  - **Measuress** (Helper Table) →  A disconnected table created specifically to group and organize all DAX measures.
+  - **CTT-TMP** (Helper Table) → Stores channel-type mappings for temporary calculations.
+  - **Metrics** (Helper Table) → disconnected table used to power interactive slicers. To dynamically select which metric (e.g., Clicks, Views, Impressions).
 
-- Relationship Setup:
+- **Relationship Setup:**
     - **One-to-Many** relationship between Logo[Platform] → Sheet1[Platform] for display of the logo for each platform.
 
 ## Data Analysis
@@ -97,8 +91,93 @@ $\textsf{\color{blue}{Power BI: View Created Dax Measures, Columns, Tables ➡�
 </summary><br>
 
 **Measures:**
+1. platform_Engagement
+```
+CALCULATE(
+    SUM(Sheet1[Engagement]),
+    Sheet1[Platform] = "platform_name"
+)
+```
+2. EngagementRate (%)
+```
+DIVIDE(SUM([Engagement]), SUM([Impressions]))
+```
+3. Selected Metric Value
+```
+
+VAR SelectedMetric = SELECTEDVALUE(Metrics[Metric])
+RETURN
+    SWITCH(
+        TRUE(),
+        SelectedMetric = "Impressions", SUM(Sheet1[Impressions]),
+        SelectedMetric = "Views",       SUM(Sheet1[Views]),
+        SelectedMetric = "Engagement",  SUM(Sheet1[Engagement]),
+        SelectedMetric = "Likes",  SUM(Sheet1[Likes]),
+        SelectedMetric = "Shares",  SUM(Sheet1[Shares]),
+        SelectedMetric = "Comments",  SUM(Sheet1[Comments]),
+        SelectedMetric = "Clicks",  SUM(Sheet1[Clicks])
+    )
+        
+```
+4. Total Engagement
+```
+SUM(Sheet1[Engagement])
+```
+
 **Calculated Columns:**
+1. Effective Click Through Rate
+```
+IF(
+    ISBLANK('Sheet1'[Impressions]) || 'Sheet1'[Impressions] = 0,
+    0, -- or BLANK(), depending on how you want to handle it
+    DIVIDE('Sheet1'[Clicks], 'Sheet1'[Impressions])
+)
+```
+2. Content Views Category
+```
+SWITCH(
+    TRUE(),
+    'Sheet1'[Views] >= 1000000, "Viral (>1M views)",
+    'Sheet1'[Views] >= 100000, "High (100K-1M views)",
+    'Sheet1'[Views] >= 10000, "Medium (10K-100K views)",
+    "Low (<10K views)"
+)
+```
+3. TimeOfDay
+```
+VAR Hour = VALUE([Post_Hour])
+RETURN
+    SWITCH(
+        TRUE(),
+        Hour >= 5 && Hour < 12, "Morning",
+        Hour >= 12 && Hour < 17, "Afternoon",
+        Hour >= 17 && Hour < 21, "Evening",
+        (Hour >= 21 && Hour <= 23) || (Hour >= 0 && Hour < 5), "Night",
+        "Unknown"
+    )
+
+```
+4. Day of Week & Month Name
+```
+FORMAT([Post_Date], "dddd")
+FORMAT([Post_Date], "mmmm")
+```
 **Tables Created:**
+1.  Metrics
+```
+DATATABLE(
+    "Metric", STRING,
+    {
+        {"Impressions"},
+        {"Views"},
+        {"Engagement"},
+        {"Likes"},
+        {"Shares"},
+        {"Comments"},
+        {"Clicks"}
+    }
+)
+```
 
 </details>
 
@@ -109,10 +188,10 @@ $\textsf{\color{blue}{View Images ➡️}}$
 </summary>
 
 > ### 1. OverView
-> <a href="https://app.powerbi.com/view?r=eyJrIjoiZDA1YTBkMzctMWM0Yy00NTE2LWE4MWItNTc5MTM1MmU5YjRhIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" target="_blank"> <img width="650" height="420" alt="Image" src="https://github.com/user-attachments/assets/5f5ed0cd-2341-4317-aa64-2f8e7ad6a4d4" /> </a>
+> <a href="https://app.powerbi.com/view?r=eyJrIjoiZDA1YTBkMzctMWM0Yy00NTE2LWE4MWItNTc5MTM1MmU5YjRhIiwidCI6IjQ2NTRiNmYxLTBlNDctNDU3OS1hOGExLTAyZmU5ZDk0M2M3YiIsImMiOjl9" target="_blank"> <img width="650" height="400" alt="Image" src="https://github.com/user-attachments/assets/5f5ed0cd-2341-4317-aa64-2f8e7ad6a4d4" /> </a>
 
 > ### 2. Analytics
-> <img width="650" height="420" alt="Image" src="https://github.com/user-attachments/assets/0e3954c9-bf05-47c5-9b04-30a5b0a21417" />
+> <img width="650" height="400" alt="Image" src="https://github.com/user-attachments/assets/0e3954c9-bf05-47c5-9b04-30a5b0a21417" />
 
 </details>
 
