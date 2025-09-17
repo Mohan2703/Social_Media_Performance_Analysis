@@ -14,10 +14,17 @@
 8. [Findings](#findings)
 9. [Tools And Softwares](#tools-and-softwares)
 
-## Problem Statement
-A global IT company runs content campaigns across multiple social media platforms, generating vast amounts of performance data. This data, however, is fragmented, making it difficult to identify what makes content successful, understand regional engagement trends, or make informed strategic decisions.
 
+## Problem Statement
+<details>
+<summary>
+$\textsf{\color{blue}{View Problem Statement ➡️}}$
+</summary><br>
+
+A global IT company runs content campaigns across multiple social media platforms, generating vast amounts of performance data. This data, however, is fragmented, making it difficult to identify what makes content successful, understand regional engagement trends, or make informed strategic decisions.
 - **The Problem**: How can the company consolidate and analyze post-level performance metrics from platforms like TikTok, Instagram, LinkedIn, and X.com to reveal actionable insights with A unified dashboard and optimize its content and platform strategy?
+</details>
+
 
 ## Project Planning using Star Method
 <details>
@@ -52,16 +59,27 @@ Track post-level performance (engagement, impressions, CTR).
 - Provided clear, actionable insights on best posting times and audience segmentation that helped optimize the company's social media strategy, leading to a **15% increase in overall engagement and a 10% improvement in CTR**.
 - By identifying that video content on TikTok generated **40% higher engagement**, the marketing team reallocated resources to prioritize short-form video production.
 - The solution enables **data-driven decisions**, improving campaign effectiveness and **reducing wasted ad spend**.
-
 </details>
 
 
 ## Data Source
+<details>
+<summary>
+$\textsf{\color{blue}{View Data Source ➡️}}$
+</summary><br>
+
 >- **Dataset:** 2024 Social Media Performance Challenge Dataset
 >- The data consolidates information from posts published across TikTok, Instagram, LinkedIn, and X.com.
 >- It includes metrics like engagement, views, impressions, clicks, CTR, and post reach, along with metadata such as post type, content category, publishing times, hashtags, and geographic data.
+</details>
+
 
 ## Data Preprocessing & ETL
+<details>
+<summary>
+$\textsf{\color{blue}{View PreProcssing Steps ➡️}}$
+</summary><br>
+
 **Raw data was imported as Excel file into Power BI, and the following ETL process was executed in Power Query:**
 <br>
 1. Cleaned nulls, duplicates, and standardized date/time formats.
@@ -69,8 +87,15 @@ Track post-level performance (engagement, impressions, CTR).
 3. Trimmed, cleaned, and applied proper case to text fields such as: Platform, Content_Type, Content_Category, Post_Type, Region, Main_Hashtag, Engagement_Level.
 4. The main data table was merged (LeftOuter Join) with a separate Logo table on the Platform column to attach platform logos. 
 5. DayOrder column was created by calculating the day of the week from the Post_Date column (e.g., Monday=0, Sunday=6).
+</details>
+
 
 ## Data Modelling
+<details>
+<summary>
+$\textsf{\color{blue}{View Modelling ➡️}}$
+</summary><br>
+
 <img width="600" height="400" alt="Image" src="https://github.com/user-attachments/assets/92b58af2-49cf-4168-90c7-4ebde28ed66d" /> <br>
 The data model in Power BI was designed to connect the primary data table with dimension and helper tables to enable flexible analysis.
 
@@ -82,7 +107,9 @@ The data model in Power BI was designed to connect the primary data table with d
   - **Metrics** (Helper Table) → disconnected table used to power interactive slicers. To dynamically select which metric (e.g., Clicks, Views, Impressions).
 
 - **Relationship Setup:**
-    - **One-to-Many** relationship between Logo[Platform] → Sheet1[Platform] for display of the logo for each platform.
+  - **One-to-Many** relationship between Logo[Platform] → Sheet1[Platform] for display of the logo for each platform.
+</details>
+
 
 ## Data Analysis
 <details>
@@ -178,8 +205,8 @@ DATATABLE(
     }
 )
 ```
-
 </details>
+
 
 ## Dashboard
 <details>
@@ -192,35 +219,41 @@ $\textsf{\color{blue}{View Images ➡️}}$
 
 > ### 2. Analytics
 > <img width="650" height="400" alt="Image" src="https://github.com/user-attachments/assets/0e3954c9-bf05-47c5-9b04-30a5b0a21417" />
-
 </details>
 
 
 ## Findings
+<details>
+<summary>
+$\textsf{\color{blue}{View Findings ➡️}}$
+</summary><br>
+
 - Top Performing Platform: TikTok generated the highest video views, while LinkedIn had stronger CTR for educational posts.
-
 - Top Content Type: Video posts had 2.5x higher engagement compared to text-based posts.
-
 - Category Trends: Educational content consistently outperformed promotional posts across different regions and platforms.
-
 - Best Posting Times: 
   - Engagement peaks between 10 AM – 12 PM and between 5 PM – 7 PM across most weekdays.
   - Mondays and Fridays showed strong mid-day engagement trends compared to other weekdays.
-
 - Regional Insight: 
   - USA (14.01%) and Japan (12.80%) recorded the highest engagement.
   - Australia (12.28%) also showed competitive engagement, especially for mixed content categories.
-
 - Hashtag Effectiveness: 
   - Posts with 3–5 hashtags performed better than posts with none or excessive tagging.
   - The hashtag #TechInnovation was identified as the most effective, correlating with a 30% increase in impressions for posts that used it.
-
 - Organic vs. Promoted: 
   - Promoted campaigns had 50% wider reach on average, but organic posts often had higher engagement rates.
   - organic educational content generated a 20% higher engagement rate
+</details>
+
 
 ## Tools And Softwares
+<details>
+<summary>
+$\textsf{\color{blue}{View Tools ➡️}}$
+</summary><br>
+
 - **Power BI** → data modeling & dashboard development
 - **DAX** → Custom KPIs & calculated measures
 - **Excel/CSV** → Raw dataset handling
 - **Icons/Images** → For visual representation in dashboard
+</details>
